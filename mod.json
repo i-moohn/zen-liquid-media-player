@@ -1,24 +1,14 @@
 {
+  "id": "zen-liquid-media-player",
   "name": "Zen Liquid Glass Media Player",
   "description": "Better media player",
+  "author": "i-moohn",
   "version": "1.0.0",
-  "author": "moohn",
   "homepage": "https://github.com/i-moohn/zen-liquid-media-player.git",
   "readme": "https://raw.githubusercontent.com/i-moohn/zen-liquid-media-player/main/README.md",
   "styles": {
-    "chrome": "chrome.css"
-  },
-  "themes": {
-    "dark": true,
-    "light": true
+    "chrome": "userChrome.css"
   },
   "createdAt": "2026-08-02",
-	"updatedAt": "2026-08-02",
-	"fork": [
-		"zen",
-		"floorp",
-		"firefox",
-		"librewolf",
-		"mullvad"
-	]
+	"updatedAt": "2026-08-02"
 }
