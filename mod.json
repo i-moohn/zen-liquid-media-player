@@ -1,6 +1,6 @@
 {
   "name": "Zen Liquid Glass Media Player",
-  "description": "Минималистичный стеклянный медиаплеер с плавной анимацией прогресс-бара.",
+  "description": "Better media player",
   "version": "1.0.0",
   "author": "moohn",
   "homepage": "https://github.com/i-moohn/zen-liquid-media-player.git",
@@ -11,5 +11,14 @@
   "themes": {
     "dark": true,
     "light": true
-  }
+  },
+  "createdAt": "2026-08-02",
+	"updatedAt": "2026-08-02",
+	"fork": [
+		"zen",
+		"floorp",
+		"firefox",
+		"librewolf",
+		"mullvad"
+	]
 }
