@@ -1,0 +1,164 @@
+/* ── 1. Невидимая сцена & чистка стандартных контейнеров ─────── */
+#zen-media-controls-toolbar,
+#zen-media-controls-toolbar > toolbaritem,
+#zen-media-controls-toolbar .show-on-hover,
+#zen-media-controls-toolbar #zen-media-info-container,
+#zen-media-controls-toolbar #zen-media-info-box,
+#zen-media-controls-toolbar #zen-media-buttons-hbox,
+#zen-media-controls-toolbar #zen-media-progress-hbox,
+#zen-media-controls-toolbar vbox,
+#zen-media-controls-toolbar hbox {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#zen-media-controls-toolbar { overflow: visible !important; }
+
+/* ── 2. Выезжающая верхняя часть (название + прогресс) ──────── */
+#zen-media-controls-toolbar #zen-media-main-vbox {
+  appearance: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 14px 14px 16px 16px !important;
+  position: relative !important;
+  z-index: 2 !important;
+  transition: background-color .26s ease, box-shadow .26s ease, border-radius .26s ease !important;
+}
+
+#zen-media-controls-toolbar:is(:hover, :focus-within, [showing], [expanded]) #zen-media-main-vbox {
+  background: rgba(255, 255, 255, 0.06) linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 22%, transparent 46%, transparent 70%, rgba(255, 255, 255, 0.05) 100%) !important;
+  backdrop-filter: blur(18px) saturate(180%) brightness(1.10) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.10) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 -8px 24px rgba(0, 0, 0, 0.20) !important;
+}
+
+/* ── 3. Полоска кнопок = стеклянная таблетка ───────────────── */
+#zen-media-controls-toolbar #zen-media-controls-hbox {
+  appearance: none !important;
+  background: rgba(255, 255, 255, 0.06) linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 24%, transparent 50%, transparent 72%, rgba(255, 255, 255, 0.04) 100%) !important;
+  backdrop-filter: blur(18px) saturate(180%) brightness(1.10) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.10) !important;
+  border: none !important;
+  border-radius: 16px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+  transition: box-shadow .26s ease, background-color .26s ease, border-radius .26s ease !important;
+}
+
+/* НАВЕДЕНИЕ: мягкое приглушённое высветление */
+#zen-media-controls-toolbar:is(:hover, :focus-within) #zen-media-controls-hbox {
+  background: rgba(255, 255, 255, 0.075) linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 24%, transparent 50%, transparent 72%, rgba(255, 255, 255, 0.04) 100%) !important;
+  border-radius: 0 0 14px 14px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 12px 32px rgba(0, 0, 0, 0.30) !important;
+}
+
+/* ── 4. Техдолг, чистка разделителей и рамок обложки ────────── */
+#zen-media-controls-toolbar ::before,
+#zen-media-controls-toolbar ::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#zen-media-controls-toolbar :is(toolbarseparator, separator) {
+  display: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+#zen-media-controls-toolbar :is([id*="artwork"], [id*="cover"], [id*="image"], img, image) {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* ── 5. Кнопки плеера ────────────────────────────────────────── */
+#zen-media-controls-toolbar toolbarbutton,
+#zen-media-controls-toolbar toolbarbutton :is(.toolbarbutton-icon, .toolbarbutton-badge-stack, .toolbarbutton-text) {
+  appearance: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+
+#zen-media-controls-toolbar toolbarbutton {
+  border-radius: 50% !important;
+  transition: background-color .2s ease, transform .14s cubic-bezier(.34, 1.56, .64, 1) !important;
+}
+
+#zen-media-controls-toolbar toolbarbutton:hover {
+  background: radial-gradient(120% 120% at 50% 35%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.03) 72%) !important;
+}
+
+#zen-media-controls-toolbar toolbarbutton:hover:active {
+  background: rgba(255, 255, 255, 0.12) !important;
+  transform: scale(.92) !important;
+}
+
+#zen-media-controls-toolbar toolbarbutton[disabled="true"],
+#zen-media-controls-toolbar toolbarbutton[disabled] {
+  cursor: default !important;
+}
+
+/* ── 6. Прогресс-бар ─────────────────────────────────────────── */
+#zen-media-progress-bar { 
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+#zen-media-progress-bar::-moz-range-track {
+  background: rgba(255, 255, 255, 0.10) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.30) !important;
+  border-radius: 999px !important;
+  height: 6px !important;
+}
+
+#zen-media-progress-bar::-moz-range-progress {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.65)) !important;
+  border-radius: 999px !important;
+  height: 6px !important;
+}
+
+#zen-media-progress-bar::-moz-range-thumb {
+  background: radial-gradient(circle at 35% 30%, #ffffff, #e6e6ea) !important;
+  border: none !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45) !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  will-change: transform, box-shadow !important;
+  transition: transform .14s ease-out, box-shadow .14s ease-out !important;
+}
+
+#zen-media-progress-bar:hover::-moz-range-thumb {
+  transform: scale(1.12) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.55) !important;
+  transition: transform .14s ease-out, box-shadow .14s ease-out !important;
+}
+
+/* ── 7. Анти-прыжок PIP кнопки & Бегущая строка ─────────────── */
+#zen-media-controls-toolbar #zen-media-pip-button:is([hidden], [hidden="true"], [collapsed], [collapsed="true"]) {
+  display: -moz-box !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+#zen-media-controls-toolbar :is(#zen-media-info-box, #zen-media-info-container, [scrollable], .overflow-box) * {
+  animation-timing-function: linear !important;
+  animation-duration: 20s !important;
+  backface-visibility: hidden !important;
+  text-rendering: optimizeLegibility !important;
+}
